@@ -1,53 +1,166 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0"/>
         <title>Cyber Builds</title>
+        <link rel="stylesheet" href="href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     </head>
     <body>
         <H1>Cyber Builds</H1>
+        <div class="cart-corner" id="cart-corner">
+            <button type="button" class="cart-icon-btn" id="cart-toggle-btn" aria-label="Toggle cart" aria-expanded="false">
+            <span class="material-symbols-outlined" aria-hidden="true">shopping_cart</span>
+            <span class="cart-badge" id="cart-count">0</span>
+            </button>
+
+            <aside class="cart-popover" id="cart-popover" aria-label="Shopping cart">
+                <h3>Your cart</h3>
+                <ul class="cart-list" id="cart-list"></ul>
+                <strong>Total: R<span id="cart-total">0</span></strong>
+            </aside>
+        </div>
+
+
+
+        <div class="item-toast" id="item-toast" role="status" aria-live="polite">
+        <img id="toast-img" src="" alt="" />
+            <div class="toast-text">
+            <strong id="toast-title"></strong>
+            <span id="toast-meta"></span>
+            </div>
+        </div>
         <headline>Let's build your dream machine.</headline>
 
-            <ul>
-                <h4>Hardware</h4>
-            
-                <li>Motherboard</li>
+        <div class="shop-wrapper">
+    <div class="tabs-container">
+        <div class="tab-bar" role="tablist" aria-label="Product categories">
+            <button type="button" class="tab-btn" role="tab" id="tab-frames" aria-controls="panel-frames" aria-selected="true">
+            Hardware
+            </button>
+            <button type="button" class="tab-btn" role="tab" id="tab-mats" aria-controls="panel-mats" aria-selected="false">
+            Software
+            </button>
+            <button type="button" class="tab-btn" role="tab" id="tab-mats" aria-controls="panel-mats" aria-selected="false">
+            Peripherals
+            </button>
+            <button type="button" class="tab-btn" role="tab" id="tab-mats" aria-controls="panel-mats" aria-selected="false">
+            Networking Equipment
+            </button>
+        </div>   
+        <!-- TAB 1: HARDWARE -->
+        <section class="tab-panel is-active" role="tabpanel" id="panel-hardware" aria-labelledby="tab-hardware" data-category="Hardware">
+        <div class="steps-stack">
+            <div class="step-box" data-step="1">
+            <span class="step-label">1. Select Hardware Item</span>
+            <div class="options-grid" id="hw-item-grid">
+                <label class="choice-card"><input type="radio" name="hw-item" value="Motherboard" /><span class="choice-name">Motherboard</span><span class="choice-price">Step 1</span></label>
+                <label class="choice-card"><input type="radio" name="hw-item" value="CPU" /><span class="choice-name">CPU</span><span class="choice-price">Step 1</span></label>
+                <label class="choice-card"><input type="radio" name="hw-item" value="RAM" /><span class="choice-name">RAM</span><span class="choice-price">Step 1</span></label>
+                <label class="choice-card"><input type="radio" name="hw-item" value="Hard Drive" /><span class="choice-name">Hard Drive</span><span class="choice-price">Step 1</span></label>
+                <label class="choice-card"><input type="radio" name="hw-item" value="GPU" /><span class="choice-name">GPU</span><span class="choice-price">Step 1</span></label>
+                <label class="choice-card"><input type="radio" name="hw-item" value="Power Supply" /><span class="choice-name">Power Supply</span><span class="choice-price">Step 1</span></label>
+            </div>
+            </div>
 
-                <li>CPU</li>
-                <li>RAM</li>
-                <li>Hard Drive</li>
-                <li>GPU</li>
-                <li>Power Supply</li>
-            </ul>
+        <div class="step-box" data-step="2" hidden>
+            <span class="step-label" id="hw-step2-label">2. Select Option</span>
+            <div class="options-grid" id="hw-step2-grid"></div>
+        </div>
 
-            <ul>
-                <h4>Software</h4>
-           
-                <li>Operating System</li>
-                <li>Office Suite</li>
-                <li>Antivirus</li>
-                <li>Video Editing Software</li>
-                <li>Game Development Software</li>
-            </ul>
-            
-            <ul>
-                <h4>Input & Output Devices</h4>
-           
-                <li>Keyboard</li>
-                <li>Mouse</li>
-                <li>Monitor</li>
-                <li>Headphones</li>
-                <li>Speakers</li>
-                <li>Webcam</li>
-                <li>Microphone</li>
-            </ul>
-            <ul>
-                <h4>Networking Equipment</h4>
-            
-                <li>Router</li>
-                <li>Switch</li>
-                <li>Network Cable</li>
-                <li>Wireless Adapter</li>
-                <li>Network Card</li>
-            </ul>
+        <div class="step-box" data-step="3" hidden>
+            <span class="step-label" id="hw-step3-label">3. Select Model / Size</span>
+            <div class="options-grid" id="hw-step3-grid"></div>
+        </div>
+        </div>
+
+        <div class="action-row">
+          <button type="button" class="add-cart-btn" id="hw-add-btn" disabled>Add Completed Selection to Cart</button>
+          <span class="step-status" id="hw-status">Complete all steps for this item to add to cart.</span>
+        </div>
+      </section>
+
+      <!-- TAB 2: SOFTWARE -->
+      <section class="tab-panel" role="tabpanel" id="panel-software" aria-labelledby="tab-software" data-category="Software">
+        <div class="steps-stack">
+          <div class="step-box" data-step="1">
+            <span class="step-label">1. Select Software</span>
+            <div class="options-grid" id="sw-item-grid">
+              <label class="choice-card"><input type="radio" name="sw-item" value="Operating System" /><span class="choice-name">Operating System</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="sw-item" value="Office Suite" /><span class="choice-name">Office Suite</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="sw-item" value="Antivirus" /><span class="choice-name">Antivirus</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="sw-item" value="Video Editing Software" /><span class="choice-name">Video Editing Software</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="sw-item" value="Game Development Software" /><span class="choice-name">Game Development Software</span><span class="choice-price">Step 1</span></label>
+            </div>
+          </div>
+
+          <div class="step-box" data-step="2" hidden>
+            <span class="step-label" id="sw-step2-label">2. Select Edition / License</span>
+            <div class="options-grid" id="sw-step2-grid"></div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button type="button" class="add-cart-btn" id="sw-add-btn" disabled>Add Completed Selection to Cart</button>
+          <span class="step-status" id="sw-status">Complete all steps for this item to add to cart.</span>
+        </div>
+      </section>
+
+      <!-- TAB 3: PERIPHERALS -->
+      <section class="tab-panel" role="tabpanel" id="panel-peripherals" aria-labelledby="tab-peripherals" data-category="Peripherals">
+        <div class="steps-stack">
+          <div class="step-box" data-step="1">
+            <span class="step-label">1. Select Peripheral</span>
+            <div class="options-grid" id="pe-item-grid">
+              <label class="choice-card"><input type="radio" name="pe-item" value="Keyboard" /><span class="choice-name">Keyboard</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="pe-item" value="Mouse" /><span class="choice-name">Mouse</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="pe-item" value="Monitor" /><span class="choice-name">Monitor</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="pe-item" value="Headphones" /><span class="choice-name">Headphones</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="pe-item" value="Speakers" /><span class="choice-name">Speakers</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="pe-item" value="Webcam" /><span class="choice-name">Webcam</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="pe-item" value="Microphone" /><span class="choice-name">Microphone</span><span class="choice-price">Step 1</span></label>
+            </div>
+          </div>
+
+          <div class="step-box" data-step="2" hidden>
+            <span class="step-label" id="pe-step2-label">2. Select Specification</span>
+            <div class="options-grid" id="pe-step2-grid"></div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button type="button" class="add-cart-btn" id="pe-add-btn" disabled>Add Completed Selection to Cart</button>
+          <span class="step-status" id="pe-status">Complete all steps for this item to add to cart.</span>
+        </div>
+      </section>
+
+      <!-- TAB 4: NETWORKING EQUIPMENT -->
+      <section class="tab-panel" role="tabpanel" id="panel-networking" aria-labelledby="tab-networking" data-category="Networking Equipment">
+        <div class="steps-stack">
+          <div class="step-box" data-step="1">
+            <span class="step-label">1. Select Networking Equipment</span>
+            <div class="options-grid" id="net-item-grid">
+              <label class="choice-card"><input type="radio" name="net-item" value="Router" /><span class="choice-name">Router</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="net-item" value="Switch" /><span class="choice-name">Switch</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="net-item" value="Network Cable" /><span class="choice-name">Network Cable</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="net-item" value="Wireless Adapter" /><span class="choice-name">Wireless Adapter</span><span class="choice-price">Step 1</span></label>
+              <label class="choice-card"><input type="radio" name="net-item" value="Network Card" /><span class="choice-name">Network Card</span><span class="choice-price">Step 1</span></label>
+            </div>
+          </div>
+
+          <div class="step-box" data-step="2" hidden>
+            <span class="step-label" id="net-step2-label">2. Select Specification</span>
+            <div class="options-grid" id="net-step2-grid"></div>
+          </div>
+        </div>
+
+        <div class="action-row">
+            <button type="button" class="add-cart-btn" id="net-add-btn" disabled>Add Completed Selection to Cart</button>
+            <span class="step-status" id="net-status">Complete all steps for this item to add to cart.</span>
+        </div>
+    </section>
+    </div>
+  </div>
 
 
     </body>
